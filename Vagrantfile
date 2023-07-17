@@ -23,8 +23,22 @@ INSTALL_DOCKER_ENDSCRIPT
 Vagrant.configure(VAGRANT_API_VERSION) do |config|
   config.vm.box = VAGRANT_VIRTUAL_BOX
   config.vm.provider "virtualbox" do |vbox|
-    vbox.memory = 2048
+    vbox.memory = 4096
   end
   config.vm.provision "shell", inline: $apt_update
   config.vm.provision "shell", inline: $install_docker
+  config.vm.network "forwarded_port", guest: 5432, host:5432
+  config.vm.network "forwarded_port", guest: 8000, host:8000
+  config.vm.network "forwarded_port", guest: 80, host:80
+  config.vm.network "forwarded_port", guest: 8001, host:8001
+  config.vm.network "forwarded_port", guest: 1337, host:1337
+  config.vm.network "forwarded_port", guest: 9001, host:9001
+  config.vm.network "forwarded_port", guest: 9002, host:9002
+  config.vm.network "forwarded_port", guest: 9003, host:9003
+  config.vm.network "forwarded_port", guest: 9004, host:9004
+  config.vm.network "forwarded_port", guest: 9411, host:9411
+  config.vm.network "forwarded_port", guest: 9200, host:9200
+  config.vm.network "forwarded_port", guest: 9600, host:9600
+  config.vm.network "forwarded_port", guest: 5555, host:5555
+  config.vm.network "forwarded_port", guest: 5601, host:5601
 end
