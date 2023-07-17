@@ -5,12 +5,11 @@
 version: "3"
 
 networks:
- kong-net:
-  name: kong-net
-  driver: bridge
-  ipam:
-    config:
-      - subnet: 172.1.1.0/24
+  kong-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.1.1.0/24
 
 services:
 
