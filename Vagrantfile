@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
   config.vm.provision "shell", inline: $install_docker
   config.vm.network "forwarded_port", guest: 5432, host:5432
   config.vm.network "forwarded_port", guest: 8000, host:8000
+  config.vm.network "forwarded_port", guest: 8443, host:8443
   config.vm.network "forwarded_port", guest: 80, host:80
   config.vm.network "forwarded_port", guest: 8001, host:8001
   config.vm.network "forwarded_port", guest: 1337, host:1337
